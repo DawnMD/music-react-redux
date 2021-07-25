@@ -1,20 +1,13 @@
-// import { selectSong } from "../actions";
-import SongList from "./SongList";
-import SongDetail from "./SongDetail";
+import SongList from './SongList';
+import SongDetail from './SongDetail';
 
 const App = () => {
-  return (
-    <div className="ui container grid">
-      <div className="ui row">
-        <div className="column eight wide">
-          <SongList />
-        </div>
-        <div className="column eight wide">
-          <SongDetail />
-        </div>
-      </div>
-    </div>
-  );
+	return (
+		<div className='flex flex-col items-center justify-center min-h-screen'>
+			<SongDetail />
+			<SongList />
+		</div>
+	);
 };
 
 export default App;
