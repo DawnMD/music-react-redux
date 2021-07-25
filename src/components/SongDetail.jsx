@@ -1,20 +1,15 @@
-import { connect } from "react-redux";
+import { useSelector } from 'react-redux';
 
-const SongDetail = ({ selectedSong }) => {
-  if (!selectedSong) {
-    return <div>Select a Song</div>;
-  }
-  return (
-    <div>
-      <h3>Details:</h3>
-      <p>Title: {selectedSong.title}</p>
-      <p>Duration: {selectedSong.duration}</p>
-    </div>
-  );
+const SongDetail = (props) => {
+	const selectedSong = useSelector((state) => state.songs.selectedSong);
+	return (
+		selectedSong && (
+			<div className='flex flex-col items-center p-4 rounded-md shadow-md w-96'>
+				<h1 className='text-xl font-bold'>Selected Song</h1>
+				<p className='text-xl font-medium'>{selectedSong.title}</p>
+				<p>{selectedSong.duration}</p>
+			</div>
+		)
+	);
 };
-
-const mapStateToProps = (state) => {
-  return { selectedSong: state.selectedSong };
-};
-
-export default connect(mapStateToProps)(SongDetail);
+export default SongDetail;
